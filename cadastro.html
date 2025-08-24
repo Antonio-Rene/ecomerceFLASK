@@ -1,14 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
-<h2>Login</h2>
+<h2>Criar Conta</h2>
 <form method="POST">
+  <label>Nome:</label><br>
+  <input type="text" name="nome" required><br><br>
+
   <label>Email:</label><br>
   <input type="email" name="email" required><br><br>
 
   <label>Senha:</label><br>
   <input type="password" name="senha" required><br><br>
 
-  <button type="submit" class="btn">Entrar</button>
+  <button type="submit" class="btn">Cadastrar</button>
 </form>
-<p>Não tem conta? <a href="{{ url_for('cadastro') }}">Cadastre-se</a></p>
+<p>Já tem conta? <a href="{{ url_for('login') }}">Entrar</a></p>
 {% endblock %}

@@ -1,20 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <title>{% block title %}Meu Projeto Flask{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <meta charset="UTF-8">
+  <title>Sistema de Anúncios</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </head>
 <body>
-    <header>
-        <h1>Meu Projeto Flask</h1>
-        <nav>
-            <a href="/">Início</a> |
-            <a href="/usuarios/login">Login</a>
-        </nav>
-    </header>
-    <main>
-        {% block content %}{% endblock %}
-    </main>
+  <nav>
+    <a href="{{ url_for('index') }}">Início</a> |
+    <a href="{{ url_for('lista_anuncios') }}">Anúncios</a> |
+    {% if current_user.is_authenticated %}
+      Olá, {{ current_user.nome }} |
+      <a href="{{ url_for('logout') }}">Sair</a>
+    {% else %}
+      <a href="{{ url_for('login') }}">Login</a> |
+      <a href="{{ url_for('cadastro') }}">Cadastro</a>
+    {% endif %}
+  </nav>
+  <hr>
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class="flash">
+        {% for msg in messages %}
+          <li>{{ msg }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+
+  {% block content %}{% endblock %}
 </body>
 </html>

@@ -1,8 +1,12 @@
 {% extends "base.html" %}
-
-{% block title %}Página Inicial{% endblock %}
-
 {% block content %}
-    <h2>Bem-vindo ao site!</h2>
-    <p>Este é o começo do ecomerce solicitado! 🚀</p>
+<h1>Bem-vindo ao Sistema de Anúncios</h1>
+<p>Cadastre-se, faça login e publique seus anúncios!</p>
+
+{% if current_user.is_authenticated %}
+  <p><a href="{{ url_for('novo_anuncio') }}" class="btn">Criar Novo Anúncio</a></p>
+{% else %}
+  <p><a href="{{ url_for('login') }}" class="btn">Entrar</a> ou 
+     <a href="{{ url_for('cadastro') }}" class="btn">Cadastrar</a></p>
+{% endif %}
 {% endblock %}
