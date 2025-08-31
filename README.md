@@ -14,16 +14,6 @@ python app.py
 # abrir http://127.0.0.1:5000
 ```
 
-## Publicar no GitHub (resumo)
-```bash
-git init
-git add .
-git commit -m "Projeto Flask: auth + CRUD + Bootstrap"
-git branch -M main
-git remote add origin https://github.com/<seu-usuario>/<seu-repo>.git
-git push -u origin main
-```
-
 ## Deploy no PythonAnywhere (resumo)
 1. Crie conta e faça login no PythonAnywhere.
 2. Abra um **Bash console** e rode:
