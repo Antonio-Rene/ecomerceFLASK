@@ -1,4 +1,4 @@
-# E-commerce Flask 
+# E-commerce Flask (Bootstrap + Auth + CRUD)
 
 ## Páginas e Controle de Acesso
 - Públicas: `/`, `/login`, `/cadastro`
@@ -12,6 +12,16 @@ python -m venv venv
 pip install -r requirements.txt
 python app.py
 # abrir http://127.0.0.1:5000
+```
+
+## Publicar no GitHub (resumo)
+```bash
+git init
+git add .
+git commit -m "Projeto Flask: auth + CRUD + Bootstrap"
+git branch -M main
+git remote add origin https://github.com/<seu-usuario>/<seu-repo>.git
+git push -u origin main
 ```
 
 ## Deploy no PythonAnywhere (resumo)
